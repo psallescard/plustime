@@ -1,0 +1,21 @@
+{
+    // Editor Configs
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/src"
+    },
+    "terminal.integrated.env.osx": {
+        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/src"
+    },
+    "terminal.integrated.env.windows": {
+        "PYTHONPATH": "${workspaceFolder};${workspaceFolder}\\src"
+    },
+
+    // Python Analysis Config (Crucial for IntelliSense)
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/src"
+    ],
+
+    // AutoDocstring configs
+    "autoDocstring.generateDocstringOnEnter": true,
+    "autoDocstring.docstringFormat": "google"
+}
