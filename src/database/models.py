@@ -13,13 +13,13 @@ from peewee import (
     TextField,
 )
 
-db = SqliteDatabase("plustime.db")
+db = SqliteDatabase("data/plustime.db")
 
 
 def create_tables() -> None:
     """Initialize the database tables."""
     with db:
-        db.create_tables([User, Group, Project, Status, Item])
+        db.create_tables([Profile, Group, Project, Status, Item])
         print("Tables created successfully.")
 
 
@@ -41,18 +41,17 @@ class BaseModel(Model):
         database = db  # Database to use for all models
 
 
-class User(BaseModel):
-    username = CharField(unique=True)
-    password = CharField()
-    email = CharField(unique=True)
-    last_login = DateTimeField(null=True)
+class Profile(BaseModel):
+    display_name = CharField(unique=True)
+    email = CharField(unique=True, null=True)
+    last_opened = DateTimeField(null=True)
 
     def __str__(self) -> str:
         return f"<{self.username}>"
 
 
 class Group(BaseModel):
-    user = ForeignKeyField(User, backref="groups", on_delete="CASCADE")
+    user = ForeignKeyField(Profile, backref="groups", on_delete="CASCADE")
     name = CharField()
     icon = CharField(null=True)
 
@@ -61,7 +60,7 @@ class Group(BaseModel):
 
 
 class Project(BaseModel):
-    user = ForeignKeyField(User, backref="projects", on_delete="CASCADE")
+    user = ForeignKeyField(Profile, backref="projects", on_delete="CASCADE")
     group = ForeignKeyField(Group, backref="projects", null=True, on_delete="SET NULL")
     name = CharField()
     description = TextField(null=True)
@@ -78,7 +77,7 @@ class Status(BaseModel):
     project = ForeignKeyField(Project, backref="statuses", on_delete="CASCADE")
     name = CharField()
     order = IntegerField()
-    status_type = CharField(default="standard")  # e.g., 'backlog', 'completed'
+    type = CharField(default="standard")  # e.g., 'backlog', 'completed'
 
     def __str__(self) -> str:
         return f"<'{self.name}' of {self.project.name}>"
