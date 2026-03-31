@@ -63,7 +63,6 @@ class Project(BaseModel):
     user = ForeignKeyField(Profile, backref="projects", on_delete="CASCADE")
     group = ForeignKeyField(Group, backref="projects", null=True, on_delete="SET NULL")
     name = CharField()
-    description = TextField(null=True)
     color_hex = CharField(default="#3F51B5")
     is_active = BooleanField(default=True)
 
