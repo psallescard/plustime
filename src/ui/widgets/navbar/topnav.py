@@ -34,6 +34,7 @@ class Title(ft.Row):
     def __init__(self, project_name: str, tag_name: str) -> None:
         super().__init__()
         self.spacing = 4
+        self.vertical_alignment = ft.CrossAxisAlignment.CENTER
 
         # We wrap the buttons in a MenuBar to enable the cascading functionality
         self.controls = [
