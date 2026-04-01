@@ -71,10 +71,8 @@ class BottomLineTextButton(ft.Column):
         )
         self.text.color = self.active_color
         self.component.content.icon_color = self.active_color
-        self.text.weight = ft.FontWeight.W_600
 
     def deactivate(self) -> None:
         self.component.border = None
         self.text.color = self.inactive_color
         self.component.content.icon_color = self.inactive_color
-        self.text.weight = ft.FontWeight.NORMAL
