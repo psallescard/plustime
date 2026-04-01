@@ -30,6 +30,7 @@ def main(page: ft.Page) -> None:
         "Geist-Light": "fonts/Geist-Light.ttf",
         "Open-Sans": "fonts/OpenSans-Regular.ttf",
         "Open-Sans-Bold": "fonts/OpenSans-Bold.ttf",
+        "Open-Sans-ExtraBold": "fonts/OpenSans-ExtraBold.ttf",
         "Open-Sans-SemiBold": "fonts/OpenSans-SemiBold.ttf",
         "Open-Sans-Medium": "fonts/OpenSans-Medium.ttf",
         "Open-Sans-Light": "fonts/OpenSans-Light.ttf",
