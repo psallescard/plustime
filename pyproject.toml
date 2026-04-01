@@ -32,7 +32,7 @@ copyright = "Copyright (C) 2023-2026 by Flet"
 path = "src"
 
 [tool.ruff]
-line-length = 120
+line-length = 100
 indent-width = 4
 target-version = "py312"
 output-format = "grouped"
