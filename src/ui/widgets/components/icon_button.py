@@ -2,7 +2,7 @@ from typing import Self
 
 import flet as ft
 
-from ui.styles import AppColors
+from ui.styles import AppColors, AppRadius, AppSizes
 
 
 class IconBtn(ft.IconButton):
@@ -13,15 +13,17 @@ class IconBtn(ft.IconButton):
         self.icon = icon
         self.tooltip = label
         self.icon_size = 16
-        self.width = 28
-        self.height = 28
+        self.width = AppSizes.BTN_MD
+        self.height = AppSizes.BTN_MD
         self.padding = 0
         self.callback_func = None
         self.on_click = self._on_click_internal_handler
 
         self.style = ft.ButtonStyle(
-            shape=ft.RoundedRectangleBorder(radius=5),
+            shape=ft.RoundedRectangleBorder(radius=AppRadius.RADIUS_XS),
+            padding=ft.Padding.all(0),
             shadow_color=ft.Colors.TRANSPARENT,
+            mouse_cursor=ft.MouseCursor.CLICK,
         )
 
     def _on_click_internal_handler(self, e) -> None:  # noqa: ANN001
@@ -35,8 +37,8 @@ class IconBtn(ft.IconButton):
 
         self.update()
 
-    def with_border(self, color: str = AppColors.BG_400) -> Self:
-        self.style.side = ft.BorderSide(0.5, color)
+    def with_border(self, width: float = 0.5, color: str = AppColors.BG_400) -> Self:
+        self.style.side = ft.BorderSide(width, color)
         return self
 
     def with_callback(self, func: callable) -> Self:
@@ -44,14 +46,20 @@ class IconBtn(ft.IconButton):
         self.callback_func = func
         return self
 
-    def with_bgcolor(self, color: str) -> Self:
+    def with_bgcolor(self, color: str, hover_color: str | None = None) -> Self:
         self.bgcolor = color
+        if hover_color:
+            self.hover_color = hover_color
         return self
 
-    def with_size(self, size: int, icon_size: int = 16) -> Self:
+    def with_size(self, size: int = AppSizes.BTN_MD, icon_size: int = 16) -> Self:
         self.width = size
         self.height = size
         self.icon_size = icon_size
+        return self
+
+    def with_radius(self, radius: int = AppRadius.RADIUS_XS) -> Self:
+        self.style.shape = ft.RoundedRectangleBorder(radius=radius)
         return self
 
     def with_active_state(self, active_icon: ft.IconData, is_selected: bool = False) -> Self:
