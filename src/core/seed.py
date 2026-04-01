@@ -1,4 +1,4 @@
-from database.models import Group, Item, Profile, Project, Status, db
+from core.models import Group, Item, Profile, Project, Status, db
 
 
 def seed_data() -> None:

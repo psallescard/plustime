@@ -1,4 +1,4 @@
-class Theme:
+class ThemeObject:
     BG_50: str
     BG_100: str
     BG_300: str
@@ -9,7 +9,7 @@ class Theme:
     BG_900: str
 
 
-class LightTheme(Theme):
+class LightTheme(ThemeObject):
     BG_50 = "#F8FAFC"
     BG_100 = "#E7EBEE"
     BG_300 = "#CBD5E1"
@@ -20,7 +20,7 @@ class LightTheme(Theme):
     BG_900 = "#0F172A"
 
 
-class DarkTheme(Theme):
+class DarkTheme(ThemeObject):
     BG_50 = "#0F172A"
     BG_100 = "#1E293B"
     BG_300 = "#334155"
@@ -31,7 +31,7 @@ class DarkTheme(Theme):
     BG_900 = "#F1F5F9"
 
 
-class PurpleTheme(Theme):
+class PurpleTheme(ThemeObject):
     BG_50 = "#F5F3FF"
     BG_100 = "#EBE9FE"
     BG_300 = "#D9D6FE"
@@ -42,7 +42,7 @@ class PurpleTheme(Theme):
     BG_900 = "#201A7E"
 
 
-class BeigeTheme(Theme):
+class BeigeTheme(ThemeObject):
     BG_50 = "#FDF8F0"
     BG_100 = "#F7EEDD"
     BG_300 = "#EADDC2"

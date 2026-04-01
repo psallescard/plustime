@@ -2,11 +2,12 @@ from typing import Self
 
 import flet as ft
 
-from ui.styles import Colors, Radius, Sizes
+from core.store import state
+from ui.styles import Radius, Sizes
 
 
 class IconBtn(ft.IconButton):
-    def __init__(self, label: str, icon: ft.IconData, color: str = Colors.BG_400) -> None:
+    def __init__(self, label: str, icon: ft.IconData, color: str = state.theme.BG_400) -> None:
         super().__init__()
         self.color = color
         self.icon_color = color
@@ -37,7 +38,7 @@ class IconBtn(ft.IconButton):
 
         self.update()
 
-    def with_border(self, width: float = Sizes.BORDER_XS, color: str = Colors.BG_400) -> Self:
+    def with_border(self, width: float = Sizes.BORDER_XS, color: str = state.theme.BG_400) -> Self:
         self.style.side = ft.BorderSide(width, color)
         return self
 
@@ -73,10 +74,10 @@ class IconBtn(ft.IconButton):
     def with_badge(self, value: int = 0) -> Self:
         self.badge = ft.Badge(
             label=str(value),
-            bgcolor=Colors.PRIMARY_500,
+            bgcolor=state.theme.PRIMARY_500,
             text_style=ft.TextStyle(
                 decoration=None,
-                color=Colors.BG_50,
+                color=state.theme.BG_50,
                 size=Sizes.TEXT_XS,
             ),
         )

@@ -1,13 +1,15 @@
-from ui.themes import Theme
+from ui.themes import ThemeObject
 
 
 class ThemePalette:
-    def __init__(self, theme: Theme) -> None:
+    def __init__(self, theme: ThemeObject) -> None:
         self.PRIMARY_100 = "#E8EAF6"
         self.PRIMARY_300 = "#7986CB"
         self.PRIMARY_500 = "#3F51B5"
         self.PRIMARY_800 = "#283593"
+        self.update_theme(theme)
 
+    def update_theme(self, theme: ThemeObject) -> None:
         self.BG_50 = theme.BG_50
         self.BG_100 = theme.BG_100
         self.BG_300 = theme.BG_300
@@ -51,3 +53,7 @@ class Radius:
     RADIUS_LG = 16
     RADIUS_XL = 24
     RADIUS_FULL = 500
+
+
+class Spacing:
+    pass
