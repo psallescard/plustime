@@ -1,17 +1,23 @@
-class Colors:
-    PRIMARY_100 = "#E8EAF6"
-    PRIMARY_300 = "#7986CB"
-    PRIMARY_500 = "#3F51B5"
-    PRIMARY_800 = "#283593"
+from ui.themes import ThemeObject
 
-    BG_50 = "#F8FAFC"
-    BG_100 = "#E7EBEE"
-    BG_300 = "#CBD5E1"
-    BG_400 = "#94A3B8"
-    BG_500 = "#64748B"
-    BG_600 = "#475569"
-    BG_800 = "#1E293B"
-    BG_900 = "#0F172A"
+
+class ThemePalette:
+    def __init__(self, theme: ThemeObject) -> None:
+        self.PRIMARY_100 = "#E8EAF6"
+        self.PRIMARY_300 = "#7986CB"
+        self.PRIMARY_500 = "#3F51B5"
+        self.PRIMARY_800 = "#283593"
+        self.update_theme(theme)
+
+    def update_theme(self, theme: ThemeObject) -> None:
+        self.BG_50 = theme.BG_50
+        self.BG_100 = theme.BG_100
+        self.BG_300 = theme.BG_300
+        self.BG_400 = theme.BG_400
+        self.BG_500 = theme.BG_500
+        self.BG_600 = theme.BG_600
+        self.BG_800 = theme.BG_800
+        self.BG_900 = theme.BG_900
 
 
 class Sizes:
@@ -47,3 +53,7 @@ class Radius:
     RADIUS_LG = 16
     RADIUS_XL = 24
     RADIUS_FULL = 500
+
+
+class Spacing:
+    pass

@@ -1,7 +1,7 @@
 import flet as ft
 
+from core.store import state
 from ui.layouts.main_layout import MainLayout
-from ui.styles import Colors
 
 
 def main(page: ft.Page) -> None:
@@ -12,11 +12,11 @@ def main(page: ft.Page) -> None:
     # 2. Visual Reset: CSS-like normalization
     page.padding = 0
     page.spacing = 0
-    page.bgcolor = Colors.BG_50
+    page.bgcolor = state.theme.BG_50
 
     # 3. Theme Configuration: Applying your Indigo palette globally
     page.theme = ft.Theme(
-        color_scheme_seed=Colors.PRIMARY_500,
+        color_scheme_seed=state.theme.PRIMARY_500,
         visual_density=ft.VisualDensity.COMPACT,
         font_family="Open-Sans",
     )
