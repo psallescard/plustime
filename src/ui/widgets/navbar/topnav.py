@@ -64,7 +64,7 @@ class Title(ft.Row):
             UserLink("P", AppColors.PRIMARY_500),
             self.menu_bar,
             ft.Icon(ft.Icons.CHEVRON_RIGHT_ROUNDED, size=16, color=AppColors.BG_300),
-            ft.Text(project_name, size=12, color=AppColors.BG_800, margin=8),
+            ft.Text(project_name, size=12, color=AppColors.BG_800, margin=8, font_family="Open-Sans-Bold"),
             IconBtn("Add to Favorites", ft.Icons.BOOKMARK_ADD_OUTLINED, ft.Colors.AMBER_500)
                 .with_active_state(ft.Icons.BOOKMARK_ADDED),
         ]

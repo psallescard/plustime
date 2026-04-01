@@ -16,7 +16,7 @@ class NavBar(ft.Container):
         # Stack the navbar rows separatly
         self.subnav = SubNav()
         self.topnav = TopNav()
-        self.content = ft.Column(controls=[self.topnav, self.subnav], spacing=0)
+        self.content = ft.Column(controls=[self.topnav, self.subnav], spacing=3)
 
         self.border = ft.Border(bottom=ft.BorderSide(1, color=AppColors.BG_300))
 

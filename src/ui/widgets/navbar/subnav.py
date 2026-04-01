@@ -67,7 +67,13 @@ class BottomLineTextButton(ft.Column):
     def activate(self) -> None:
         self.component.border = ft.Border.only(
             # Use BorderSideStrokeAllign.OUTSIDE to prevent layout shift on activation/deactivation
-            bottom=(ft.BorderSide(width=2, color=AppColors.PRIMARY_500, stroke_align=ft.BorderSideStrokeAlign.OUTSIDE)),
+            bottom=(
+                ft.BorderSide(
+                    width=2,
+                    color=AppColors.PRIMARY_500,
+                    stroke_align=ft.BorderSideStrokeAlign.OUTSIDE,
+                )
+            ),
         )
         self.text.color = self.active_color
         self.component.content.icon_color = self.active_color
