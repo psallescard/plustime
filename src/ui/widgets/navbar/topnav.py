@@ -26,7 +26,11 @@ class TopNav(ft.Row):
                 IconBtn("Archive", ft.Icons.HISTORY_ROUNDED)
                     .with_border(),
                 ft.VerticalDivider(width=1, color=AppColors.BG_500),
-                UserLink("P", ft.Colors.PINK),
+                IconBtn("User Settings", ft.Icons.PERSON_ROUNDED, color=AppColors.BG_50)
+                    .with_size(icon_size=20)
+                    .with_bgcolor(AppColors.BG_800, hover_color=AppColors.BG_600)
+                    .with_border(color=AppColors.BG_800)
+                    .with_radius(50),
             ],
             spacing=12,
         )
@@ -40,9 +44,10 @@ class TopNav(ft.Row):
 class Title(ft.Row):
     def __init__(self, project_name: str, tag_name: str) -> None:
         super().__init__()
-        self.spacing = 4
+        self.spacing = 5
         self.margin = ft.Margin(left=8, right=8)
         self.vertical_alignment = ft.CrossAxisAlignment.CENTER
+
         self.menu_bar = ft.MenuBar(
             style=ft.MenuStyle(bgcolor=ft.Colors.TRANSPARENT, shadow_color=ft.Colors.TRANSPARENT),
             controls=[
@@ -57,11 +62,23 @@ class Title(ft.Row):
                 ),
             ],
         )
+        # fmt: off
+        self.actions = ft.Row(
+                controls=[
+                    IconBtn("Menu", ft.Icons.MENU_ROUNDED)
+                        .with_border(),
+                    IconBtn("Home", ft.Icons.HOME_FILLED, color=AppColors.BG_50)
+                        .with_bgcolor(AppColors.BG_800, hover_color=AppColors.BG_600)
+                        .with_border(),
+                ],
+                spacing=12,
+                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+        )
 
         # fmt: off
         self.controls = [
-            IconBtn("Menu", ft.Icons.MENU_ROUNDED).with_border(),
-            UserLink("P", AppColors.PRIMARY_500),
+            self.actions,
+            ft.VerticalDivider(width=1, color=AppColors.BG_500),
             self.menu_bar,
             ft.Icon(ft.Icons.CHEVRON_RIGHT_ROUNDED, size=16, color=AppColors.BG_300),
             ft.Text(project_name, size=12, color=AppColors.BG_800, margin=8, font_family="Open-Sans-Bold"),
@@ -96,14 +113,3 @@ class SubMenuTextButton(ft.SubmenuButton):
         )
 
         self.controls = options
-
-
-class UserLink(ft.Container):
-    def __init__(self, text: str, color: str) -> None:
-        super().__init__()
-        self.content = ft.Text(text, size=12, color=AppColors.BG_50, weight=ft.FontWeight.W_600)
-        self.bgcolor = color
-        self.border_radius = 50
-        self.width = 28
-        self.height = 28
-        self.alignment = ft.Alignment.CENTER

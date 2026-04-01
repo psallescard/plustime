@@ -49,6 +49,7 @@ class BottomLineTextButton(ft.Column):
                 style=ft.ButtonStyle(
                     padding=ft.Padding.only(bottom=20, top=16, left=12, right=12),
                     shape=ft.RoundedRectangleBorder(radius=5),
+                    mouse_cursor=ft.MouseCursor.CLICK,
                 ),
                 on_click=self._on_click_handler,
             ),
