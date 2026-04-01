@@ -2,25 +2,25 @@ from typing import Self
 
 import flet as ft
 
-from ui.styles import AppColors, AppRadius, AppSizes
+from ui.styles import Colors, Radius, Sizes
 
 
 class IconBtn(ft.IconButton):
-    def __init__(self, label: str, icon: ft.IconData, color: str = AppColors.BG_400) -> None:
+    def __init__(self, label: str, icon: ft.IconData, color: str = Colors.BG_400) -> None:
         super().__init__()
         self.color = color
         self.icon_color = color
         self.icon = icon
         self.tooltip = label
-        self.icon_size = 16
-        self.width = AppSizes.BTN_MD
-        self.height = AppSizes.BTN_MD
+        self.icon_size = Sizes.ICON_SM
+        self.width = Sizes.BTN_MD
+        self.height = Sizes.BTN_MD
         self.padding = 0
         self.callback_func = None
         self.on_click = self._on_click_internal_handler
 
         self.style = ft.ButtonStyle(
-            shape=ft.RoundedRectangleBorder(radius=AppRadius.RADIUS_XS),
+            shape=ft.RoundedRectangleBorder(radius=Radius.RADIUS_XS),
             padding=ft.Padding.all(0),
             shadow_color=ft.Colors.TRANSPARENT,
             mouse_cursor=ft.MouseCursor.CLICK,
@@ -37,7 +37,7 @@ class IconBtn(ft.IconButton):
 
         self.update()
 
-    def with_border(self, width: float = 0.5, color: str = AppColors.BG_400) -> Self:
+    def with_border(self, width: float = Sizes.BORDER_XS, color: str = Colors.BG_400) -> Self:
         self.style.side = ft.BorderSide(width, color)
         return self
 
@@ -52,13 +52,13 @@ class IconBtn(ft.IconButton):
             self.hover_color = hover_color
         return self
 
-    def with_size(self, size: int = AppSizes.BTN_MD, icon_size: int = 16) -> Self:
+    def with_size(self, size: int = Sizes.BTN_MD, icon_size: int = Sizes.ICON_SM) -> Self:
         self.width = size
         self.height = size
         self.icon_size = icon_size
         return self
 
-    def with_radius(self, radius: int = AppRadius.RADIUS_XS) -> Self:
+    def with_radius(self, radius: int = Radius.RADIUS_XS) -> Self:
         self.style.shape = ft.RoundedRectangleBorder(radius=radius)
         return self
 
@@ -73,11 +73,11 @@ class IconBtn(ft.IconButton):
     def with_badge(self, value: int = 0) -> Self:
         self.badge = ft.Badge(
             label=str(value),
-            bgcolor=AppColors.PRIMARY_500,
+            bgcolor=Colors.PRIMARY_500,
             text_style=ft.TextStyle(
                 decoration=None,
-                color=AppColors.BG_50,
-                size=10,
+                color=Colors.BG_50,
+                size=Sizes.TEXT_XS,
             ),
         )
         return self
